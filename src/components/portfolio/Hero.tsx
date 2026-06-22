@@ -149,7 +149,7 @@ export function Hero() {
                 alt="Rahul Ranjan"
                 width={768}
                 height={896}
-                className="h-72 w-full object-cover object-top"
+                className="h-72 w-full object-cover object-center"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
             </div>
