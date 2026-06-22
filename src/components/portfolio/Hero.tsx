@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { ArrowDown, Download, Mail, FolderGit2, MapPin, BadgeCheck } from "lucide-react";
-import profile from "@/assets/profile.jpg";
+import profileAsset from "@/assets/rahul-photo.jpg.asset.json";
+
+const profile = profileAsset.url;
 
 const roles = [
   "AI & ML Enthusiast",
@@ -147,7 +149,7 @@ export function Hero() {
                 alt="Rahul Ranjan"
                 width={768}
                 height={896}
-                className="h-72 w-full object-cover object-top"
+                className="h-72 w-full object-cover object-center"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
             </div>

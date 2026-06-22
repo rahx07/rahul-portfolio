@@ -11,7 +11,7 @@ const details = [
 ];
 
 const socials = [
-  { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com" },
+  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/rahul-ranjan07" },
   { icon: Github, label: "GitHub", href: "https://github.com" },
 ];
 

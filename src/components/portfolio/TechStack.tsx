@@ -1,21 +1,73 @@
 import { Code2, Globe, Cpu, Wrench } from "lucide-react";
+import { motion } from "motion/react";
 import { SectionHeading } from "./SectionHeading";
 import { Reveal } from "./Reveal";
 
-const groups = [
-  { icon: Code2, title: "Programming", items: ["Python", "C++"] },
-  { icon: Globe, title: "Web", items: ["HTML", "CSS", "JavaScript", "Bootstrap"] },
+type Skill = { name: string; level: number };
+
+const groups: { icon: typeof Code2; title: string; items: Skill[] }[] = [
+  {
+    icon: Code2,
+    title: "Programming",
+    items: [
+      { name: "Python", level: 90 },
+      { name: "C++", level: 75 },
+    ],
+  },
+  {
+    icon: Globe,
+    title: "Web",
+    items: [
+      { name: "HTML", level: 85 },
+      { name: "CSS", level: 80 },
+      { name: "JavaScript", level: 72 },
+      { name: "Bootstrap", level: 78 },
+    ],
+  },
   {
     icon: Cpu,
     title: "AI & Data",
-    items: ["Machine Learning", "LLMs", "Vector Search", "Prompt Engineering", "Generative AI"],
+    items: [
+      { name: "Machine Learning", level: 85 },
+      { name: "LLMs", level: 80 },
+      { name: "Generative AI", level: 82 },
+      { name: "Prompt Engineering", level: 88 },
+      { name: "Vector Search", level: 70 },
+    ],
   },
   {
     icon: Wrench,
     title: "Tools",
-    items: ["MySQL", "Pandas", "NumPy", "Matplotlib", "Power BI", "Excel", "VS Code"],
+    items: [
+      { name: "MySQL", level: 80 },
+      { name: "Pandas", level: 88 },
+      { name: "NumPy", level: 85 },
+      { name: "Matplotlib", level: 78 },
+      { name: "Power BI", level: 82 },
+      { name: "Excel", level: 90 },
+    ],
   },
 ];
+
+function SkillBar({ name, level, delay }: Skill & { delay: number }) {
+  return (
+    <div>
+      <div className="mb-1.5 flex items-center justify-between text-sm">
+        <span className="font-medium text-foreground/85">{name}</span>
+        <span className="font-semibold text-electric">{level}%</span>
+      </div>
+      <div className="h-2 w-full overflow-hidden rounded-full bg-white/5">
+        <motion.div
+          className="h-full rounded-full bg-gradient-to-r from-electric to-purple shadow-glow"
+          initial={{ width: 0 }}
+          whileInView={{ width: `${level}%` }}
+          viewport={{ once: true, amount: 0.6 }}
+          transition={{ duration: 1.1, delay, ease: "easeOut" }}
+        />
+      </div>
+    </div>
+  );
+}
 
 export function TechStack() {
   return (
@@ -23,7 +75,7 @@ export function TechStack() {
       <SectionHeading
         eyebrow="Tech Stack"
         title="Tools I build with"
-        subtitle="A growing arsenal across AI, data, and full-stack development."
+        subtitle="A growing arsenal across AI, data, and full-stack development — with my proficiency in each."
       />
 
       <div className="grid gap-6 sm:grid-cols-2">
@@ -36,14 +88,9 @@ export function TechStack() {
                 </span>
                 <h3 className="text-lg font-bold">{g.title}</h3>
               </div>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {g.items.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-xl glass px-3.5 py-2 text-sm font-medium text-foreground/85 transition-colors hover:bg-electric/15 hover:text-electric"
-                  >
-                    {item}
-                  </span>
+              <div className="mt-6 space-y-4">
+                {g.items.map((item, idx) => (
+                  <SkillBar key={item.name} {...item} delay={idx * 0.08} />
                 ))}
               </div>
             </div>
