@@ -77,19 +77,29 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Rahul Ranjan — AI & ML Engineer Portfolio" },
+      {
+        name: "description",
+        content:
+          "Rahul Ranjan — MCA (AI & ML) student at Chandigarh University. AI, Machine Learning, and Generative AI engineer building impactful real-world software.",
+      },
+      { name: "author", content: "Rahul Ranjan" },
+      { property: "og:title", content: "Rahul Ranjan — AI & ML Engineer" },
+      {
+        property: "og:description",
+        content:
+          "Aspiring AI Engineer specializing in Machine Learning, Generative AI, and data-driven problem solving.",
+      },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: appCss,
+        href: "https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap",
       },
     ],
   }),
