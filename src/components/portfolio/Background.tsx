@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { motion } from "motion/react";
 
 export function Background() {
   const glowRef = useRef<HTMLDivElement>(null);
@@ -25,6 +26,18 @@ export function Background() {
       {/* animated grid */}
       <div className="absolute inset-0 grid-bg opacity-70" />
 
+      {/* rotating conic aurora */}
+      <motion.div
+        className="absolute left-1/2 top-1/2 h-[120vmax] w-[120vmax] -translate-x-1/2 -translate-y-1/2 opacity-[0.18]"
+        style={{
+          background:
+            "conic-gradient(from 0deg, transparent, oklch(0.7 0.2 250 / 0.5), transparent, oklch(0.65 0.25 300 / 0.5), transparent)",
+          filter: "blur(80px)",
+        }}
+        animate={{ rotate: 360 }}
+        transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+      />
+
       {/* gradient blobs */}
       <div className="absolute -left-40 top-10 h-[28rem] w-[28rem] rounded-full bg-electric/20 blur-[120px] animate-float-blob" />
       <div
@@ -35,6 +48,45 @@ export function Background() {
         className="absolute bottom-0 left-1/3 h-[26rem] w-[26rem] rounded-full bg-primary/15 blur-[130px] animate-float-blob"
         style={{ animationDelay: "-12s" }}
       />
+
+      {/* drifting motion orbs */}
+      {[
+        { size: 220, x: ["-10%", "30%", "-10%"], y: ["10%", "60%", "10%"], dur: 24, color: "bg-electric/10" },
+        { size: 280, x: ["80%", "50%", "80%"], y: ["70%", "20%", "70%"], dur: 30, color: "bg-purple/10" },
+        { size: 180, x: ["40%", "70%", "40%"], y: ["80%", "40%", "80%"], dur: 20, color: "bg-primary/10" },
+      ].map((o, i) => (
+        <motion.div
+          key={i}
+          className={`absolute rounded-full ${o.color} blur-[90px]`}
+          style={{ width: o.size, height: o.size }}
+          animate={{ left: o.x, top: o.y }}
+          transition={{ duration: o.dur, repeat: Infinity, ease: "easeInOut" }}
+        />
+      ))}
+
+      {/* animated network lines */}
+      <svg className="absolute inset-0 h-full w-full opacity-[0.15]" preserveAspectRatio="none">
+        {Array.from({ length: 6 }).map((_, i) => (
+          <motion.line
+            key={i}
+            x1={`${(i * 18) % 100}%`}
+            y1="0%"
+            x2={`${(i * 27 + 20) % 100}%`}
+            y2="100%"
+            stroke="url(#lineGrad)"
+            strokeWidth="1"
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={{ pathLength: [0, 1, 0], opacity: [0, 0.8, 0] }}
+            transition={{ duration: 6 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.8 }}
+          />
+        ))}
+        <defs>
+          <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="oklch(0.72 0.2 250)" />
+            <stop offset="100%" stopColor="oklch(0.65 0.25 300)" />
+          </linearGradient>
+        </defs>
+      </svg>
 
       {/* floating particles */}
       {Array.from({ length: 26 }).map((_, i) => (
