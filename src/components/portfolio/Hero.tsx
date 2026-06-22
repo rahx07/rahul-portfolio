@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { ArrowDown, Download, Mail, FolderGit2, MapPin, BadgeCheck } from "lucide-react";
-import profile from "@/assets/profile.jpg";
+import profileAsset from "@/assets/rahul-photo.jpg.asset.json";
+
+const profile = profileAsset.url;
 
 const roles = [
   "AI & ML Enthusiast",
