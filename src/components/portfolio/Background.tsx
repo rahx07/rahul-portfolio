@@ -31,7 +31,7 @@ export function Background() {
         className="absolute left-1/2 top-1/2 h-[120vmax] w-[120vmax] -translate-x-1/2 -translate-y-1/2 opacity-[0.18]"
         style={{
           background:
-            "conic-gradient(from 0deg, transparent, oklch(0.7 0.2 250 / 0.5), transparent, oklch(0.65 0.25 300 / 0.5), transparent)",
+            "conic-gradient(from 0deg, transparent, oklch(0.72 0.2 320 / 0.5), transparent, oklch(0.65 0.25 300 / 0.5), transparent, oklch(0.74 0.16 165 / 0.4), transparent)",
           filter: "blur(80px)",
         }}
         animate={{ rotate: 360 }}
@@ -82,7 +82,7 @@ export function Background() {
         ))}
         <defs>
           <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="oklch(0.72 0.2 250)" />
+            <stop offset="0%" stopColor="oklch(0.72 0.18 320)" />
             <stop offset="100%" stopColor="oklch(0.65 0.25 300)" />
           </linearGradient>
         </defs>
