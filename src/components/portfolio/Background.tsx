@@ -31,7 +31,7 @@ export function Background() {
         className="absolute left-1/2 top-1/2 h-[120vmax] w-[120vmax] -translate-x-1/2 -translate-y-1/2 opacity-[0.18]"
         style={{
           background:
-            "conic-gradient(from 0deg, transparent, oklch(0.7 0.2 250 / 0.5), transparent, oklch(0.65 0.25 300 / 0.5), transparent)",
+            "conic-gradient(from 0deg, transparent, oklch(0.72 0.2 320 / 0.5), transparent, oklch(0.65 0.25 300 / 0.5), transparent, oklch(0.74 0.16 165 / 0.4), transparent)",
           filter: "blur(80px)",
         }}
         animate={{ rotate: 360 }}
@@ -82,7 +82,7 @@ export function Background() {
         ))}
         <defs>
           <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="oklch(0.72 0.2 250)" />
+            <stop offset="0%" stopColor="oklch(0.72 0.18 320)" />
             <stop offset="100%" stopColor="oklch(0.65 0.25 300)" />
           </linearGradient>
         </defs>
@@ -104,6 +104,38 @@ export function Background() {
           }}
         />
       ))}
+
+      {/* shooting stars */}
+      {[
+        { top: "12%", delay: 0, dur: 5 },
+        { top: "34%", delay: 2.5, dur: 6 },
+        { top: "62%", delay: 4, dur: 5.5 },
+      ].map((s, i) => (
+        <motion.span
+          key={`star-${i}`}
+          className="absolute h-[2px] w-28 rounded-full"
+          style={{
+            top: s.top,
+            background:
+              "linear-gradient(90deg, transparent, oklch(0.92 0.04 320), oklch(0.72 0.18 320))",
+          }}
+          initial={{ left: "-10%", opacity: 0 }}
+          animate={{ left: ["-10%", "110%"], opacity: [0, 1, 0] }}
+          transition={{ duration: s.dur, repeat: Infinity, ease: "easeIn", delay: s.delay, repeatDelay: 6 }}
+        />
+      ))}
+
+      {/* vertical scanning beam */}
+      <motion.div
+        className="absolute top-0 h-full w-[2px]"
+        style={{
+          background:
+            "linear-gradient(to bottom, transparent, oklch(0.74 0.16 165 / 0.5), transparent)",
+        }}
+        initial={{ left: "0%" }}
+        animate={{ left: ["0%", "100%", "0%"] }}
+        transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+      />
 
       {/* mouse-follow glow */}
       <div

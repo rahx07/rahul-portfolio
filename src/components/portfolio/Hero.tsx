@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { ArrowDown, Download, Mail, FolderGit2, MapPin, BadgeCheck } from "lucide-react";
 import profileAsset from "@/assets/rahul-photo.jpg.asset.json";
+import resumeAsset from "@/assets/resume.pdf.asset.json";
 
 const profile = profileAsset.url;
+const resume = resumeAsset.url;
 
 const roles = [
   "AI & ML Enthusiast",
@@ -104,7 +106,10 @@ export function Hero() {
               <FolderGit2 className="h-4 w-4" /> View Projects
             </button>
             <a
-              href="#"
+              href={resume}
+              download="Rahul_Ranjan_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-xl glass px-5 py-3 text-sm font-semibold transition-colors hover:bg-white/10"
             >
               <Download className="h-4 w-4" /> Download Resume
