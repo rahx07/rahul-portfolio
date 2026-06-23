@@ -105,6 +105,38 @@ export function Background() {
         />
       ))}
 
+      {/* shooting stars */}
+      {[
+        { top: "12%", delay: 0, dur: 5 },
+        { top: "34%", delay: 2.5, dur: 6 },
+        { top: "62%", delay: 4, dur: 5.5 },
+      ].map((s, i) => (
+        <motion.span
+          key={`star-${i}`}
+          className="absolute h-[2px] w-28 rounded-full"
+          style={{
+            top: s.top,
+            background:
+              "linear-gradient(90deg, transparent, oklch(0.92 0.04 320), oklch(0.72 0.18 320))",
+          }}
+          initial={{ left: "-10%", opacity: 0 }}
+          animate={{ left: ["-10%", "110%"], opacity: [0, 1, 0] }}
+          transition={{ duration: s.dur, repeat: Infinity, ease: "easeIn", delay: s.delay, repeatDelay: 6 }}
+        />
+      ))}
+
+      {/* vertical scanning beam */}
+      <motion.div
+        className="absolute top-0 h-full w-[2px]"
+        style={{
+          background:
+            "linear-gradient(to bottom, transparent, oklch(0.74 0.16 165 / 0.5), transparent)",
+        }}
+        initial={{ left: "0%" }}
+        animate={{ left: ["0%", "100%", "0%"] }}
+        transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+      />
+
       {/* mouse-follow glow */}
       <div
         ref={glowRef}
