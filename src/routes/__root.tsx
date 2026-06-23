@@ -84,7 +84,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Rahul Ranjan — MCA (AI & ML) student at Chandigarh University. AI, Machine Learning, and Generative AI engineer building impactful real-world software.",
       },
       { name: "author", content: "Rahul Ranjan" },
-      { property: "og:title", content: "Rahul Ranjan — AI & ML Engineer" },
+      { property: "og:title", content: "Rahul Ranjan — AI & ML Engineer Portfolio" },
       {
         property: "og:description",
         content:
@@ -92,6 +92,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Rahul Ranjan — AI & ML Engineer Portfolio" },
+      { name: "description", content: "An ultra-premium personal portfolio website showcasing Rahul Ranjan's AI and ML expertise." },
+      { property: "og:description", content: "An ultra-premium personal portfolio website showcasing Rahul Ranjan's AI and ML expertise." },
+      { name: "twitter:description", content: "An ultra-premium personal portfolio website showcasing Rahul Ranjan's AI and ML expertise." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/60e25b35-59c5-49f6-bb27-b5bd419be14c/id-preview-6274b3e0--84bddbb5-070a-4cd5-8168-c848e67a1243.lovable.app-1782211158435.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/60e25b35-59c5-49f6-bb27-b5bd419be14c/id-preview-6274b3e0--84bddbb5-070a-4cd5-8168-c848e67a1243.lovable.app-1782211158435.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
