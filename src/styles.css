@@ -90,7 +90,7 @@
   }
 
   ::selection {
-    background: oklch(0.62 0.21 258 / 0.35);
+    background: oklch(0.64 0.24 300 / 0.35);
   }
 
   ::-webkit-scrollbar { width: 9px; }
