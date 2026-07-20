@@ -7,6 +7,7 @@ import { Reveal } from "./Reveal";
 const details = [
   { icon: Mail, label: "Email", value: "rahuldj2003@gmail.com", href: "mailto:rahuldj2003@gmail.com" },
   { icon: Phone, label: "Phone", value: "+91 7903986178", href: "tel:+917903986178" },
+  { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/rahul-ranjan07", href: "https://www.linkedin.com/in/rahul-ranjan07" },
   { icon: MapPin, label: "Location", value: "Patna, Bihar, India" },
 ];
 
