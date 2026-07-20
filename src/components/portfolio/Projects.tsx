@@ -1,34 +1,58 @@
-import { Mic, UtensilsCrossed, ArrowUpRight } from "lucide-react";
+import { GraduationCap, ScanFace, UtensilsCrossed, ArrowUpRight } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
 import { Reveal } from "./Reveal";
 
 const projects = [
   {
-    icon: Mic,
-    title: "Jarvis AI Voice Assistant",
+    icon: GraduationCap,
+    title: "Vidya Setu – College Portal",
     description:
-      "An intelligent voice-controlled AI assistant built using Python, Speech Recognition, Text-to-Speech, and Tkinter.",
+      "A full-stack college portal with dedicated Student and Admin dashboards, backed by a REST API and relational database.",
     features: [
-      "Voice commands",
-      "Browser automation",
-      "Music control",
-      "Time/date assistant",
-      "Multi-threaded GUI",
+      "Student dashboard",
+      "Admin dashboard",
+      "REST API",
+      "Role-based auth",
+      "SQLite database",
     ],
-    tech: ["Python", "SpeechRecognition", "pyttsx3", "Tkinter"],
+    tech: ["React", "Node.js", "Express", "SQLite", "REST API"],
     stats: [
-      ["5+", "Features"],
-      ["Real-time", "Response"],
-      ["GUI", "Multi-threaded"],
+      ["Full", "Stack"],
+      ["2", "Dashboards"],
+      ["RBAC", "Secure"],
+    ],
+  },
+  {
+    icon: ScanFace,
+    title: "Face Recognition Attendance System",
+    description:
+      "A real-time face recognition attendance system with a Tkinter GUI, automatic logging, and duplicate-entry prevention.",
+    features: [
+      "Real-time recognition",
+      "Tkinter GUI",
+      "Auto attendance log",
+      "Duplicate prevention",
+      "CSV export",
+    ],
+    tech: ["Python", "OpenCV", "face_recognition", "Pandas", "Tkinter"],
+    stats: [
+      ["Real-time", "Detection"],
+      ["CV", "Powered"],
+      ["CSV", "Logging"],
     ],
   },
   {
     icon: UtensilsCrossed,
     title: "Food Delivery Management System",
     description:
-      "A full-stack food delivery platform built using Flask and MySQL with end-to-end order management.",
-    features: ["User management", "Order tracking", "Database integration", "Delivery management"],
-    tech: ["Flask", "MySQL", "Python", "HTML/CSS"],
+      "A web-based food delivery platform built with Flask and MySQL, featuring relational models for customers, orders, and delivery tracking.",
+    features: [
+      "Customer management",
+      "Order tracking",
+      "Delivery tracking",
+      "Relational schema",
+    ],
+    tech: ["Python", "Flask", "MySQL"],
     stats: [
       ["Full", "Stack"],
       ["CRUD", "Operations"],
