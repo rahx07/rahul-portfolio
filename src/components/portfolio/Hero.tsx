@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { ArrowDown, Download, Mail, FolderGit2, MapPin, BadgeCheck } from "lucide-react";
-import profileAsset from "@/assets/rahul-photo.jpg.asset.json";
 import resumeAsset from "@/assets/resume.pdf.asset.json";
 
-const profile = profileAsset.url;
+const profile = "/assets/rahul-photo.jpg";
 const resume = resumeAsset.url;
 
 const roles = [
