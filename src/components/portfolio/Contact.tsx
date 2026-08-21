@@ -65,13 +65,6 @@ export function Contact() {
     e.preventDefault();
     setErrors({});
 
-    if (FORMSPREE_FORM_ID === "YOUR_FORMSPREE_FORM_ID") {
-      toast.error("Formspree is not configured", {
-        description: "Set VITE_FORMSPREE_FORM_ID in your environment variables.",
-      });
-      return;
-    }
-
     const parse = contactSchema.safeParse(values);
     if (!parse.success) {
       const fieldErrors: Partial<Record<keyof ContactForm, string>> = {};
@@ -81,6 +74,13 @@ export function Contact() {
       });
       setErrors(fieldErrors);
       toast.error("Please fix the highlighted fields.");
+      return;
+    }
+
+    if (FORMSPREE_FORM_ID === "YOUR_FORMSPREE_FORM_ID") {
+      toast.error("Formspree is not configured", {
+        description: "Set VITE_FORMSPREE_FORM_ID in your environment variables.",
+      });
       return;
     }
 
